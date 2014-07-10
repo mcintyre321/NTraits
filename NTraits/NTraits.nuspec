@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>NTraits</title>
+    <authors>Harry McIntyre</authors>
+    <owners>Harry McIntyre</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/mcintyre321/NTraits</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Portable library for attaching behaviours to objects at runtime using extension methods.
+    </description>
+    <copyright>Copyright 2014</copyright>
+    <tags>Traits, Decorator, Behaviour, Mixin, Runtime, Portable, Entity Component</tags>
+  </metadata>
+</package>
