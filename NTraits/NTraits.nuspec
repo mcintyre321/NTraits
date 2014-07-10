@@ -2,6 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
+    <version>$version$</version>
     <title>NTraits</title>
     <authors>Harry McIntyre</authors>
     <owners>Harry McIntyre</owners>
