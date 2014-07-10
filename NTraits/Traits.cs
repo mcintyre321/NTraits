@@ -30,7 +30,7 @@ namespace NTraits
             return Get<T>() != null;
         }
     
-        public void Add<T>(object trait) where T:class
+        public void Add<T>(T trait) where T:class
         {
             traits[typeof (T)] = trait;
         }
