@@ -41,7 +41,7 @@ Retreiving all traits attached to an object
 
 Removing a trait
 ```
-     bool removed = someObject.RemoveTrait<SomeTraitType>(); 
+     bool removed = someObject.Traits().Pop<SomeTraitType>(); 
 ``` 
 
 
