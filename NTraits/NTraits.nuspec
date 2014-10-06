@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/mcintyre321/NTraits</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Portable library for attaching behaviours to objects at runtime using extension methods.
+      Portable library for attaching behaviours to objects at runtime using extension methods. An entity-component system, if  you will.
     </description>
     <copyright>Copyright 2014</copyright>
     <tags>Traits, Decorator, Behaviour, Mixin, Runtime, Portable, Entity Component</tags>

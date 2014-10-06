@@ -8,9 +8,15 @@ namespace NTraits
     public static class TraitsExtension
     {
         private static readonly ConditionalWeakTable<object, Traits> props = new ConditionalWeakTable<object, Traits>();
+        internal static readonly ConditionalWeakTable<object, object> ents = new ConditionalWeakTable<object, object>();
         public static Traits Traits(this object key)
         {
             return props.GetValue(key, o => new Traits(o));
+        }
+
+        public static object Entity(this object trait)
+        {
+            return ents.GetValue(trait, key => null);
         }
     }
 }

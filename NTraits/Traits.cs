@@ -15,6 +15,8 @@ namespace NTraits
             _key = key;
         }
 
+
+
         public T Get<T>() where T : class
         {
             object value = null;
@@ -33,6 +35,7 @@ namespace NTraits
         public void Add<T>(T trait) where T:class
         {
             traits[typeof (T)] = trait;
+            TraitsExtension.ents.Add(trait, _key);
         }
 
         public IEnumerator<object> GetEnumerator()

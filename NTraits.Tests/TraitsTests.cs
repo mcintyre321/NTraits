@@ -90,6 +90,20 @@ namespace NTraits.Tests
             Assert.True(isTrait);
         }
 
+        [Test]
+        public void CanGetParentFromATrait()
+        {
+            var o = new SomeObject();
+            var someTrait = new SomeTrait();
+            o.Traits().Add<SomeTrait>(someTrait);
+            //when Entity() is called 
+            var entity = someTrait.Entity();
+            //then the paretn is returned
+            Assert.AreEqual(o, entity);
+        }
+
+
+
 
 
         public interface SomeInterface
