@@ -27,10 +27,7 @@ namespace NTraits
             return null;
         }
     
-        public bool Has<T>() where T : class
-        {
-            return Get<T>() != null;
-        }
+      
     
         public void Add<T>(T trait) where T:class
         {
@@ -48,20 +45,13 @@ namespace NTraits
             return GetEnumerator();
         }
 
-        public T As<T>() where T : class
-        {
-            return _key as T ?? Get<T>();
-        }
+        
 
         public bool Pop<T>()
         {
             return traits.Remove(typeof (T));
         }
 
-        public bool Is<T>() where T : class
-        {
-            return As<T>() != null;
-        }
 
     }
 }

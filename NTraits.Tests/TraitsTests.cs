@@ -62,30 +62,31 @@ namespace NTraits.Tests
             //given an object implements an interface
             var o = new SomeObject();
             //when AsTrait is called
-            var retreivedTrait = o.Traits().As<SomeInterface>();
+            var retreivedTrait = o.As<SomeInterface>();
             //then the object is returned
             Assert.True(object.ReferenceEquals(o, retreivedTrait));
         }
-
         [Test]
-        public void CanCheckForImplementedInterfaces()
+        public void CanReturnTraitFromAs()
         {
             //given an object implements an interface
-            var o = new SomeObject();
+            var someTrait = new SomeTrait();
+            var o = new SomeObject()
+                .With(someTrait);
             //when AsTrait is called
-            bool isTrait = o.Traits().Is<SomeInterface>();
+            var retreivedTrait = o.As<SomeTrait>();
             //then the object is returned
-            Assert.True(isTrait);
+            Assert.True(object.ReferenceEquals(someTrait, retreivedTrait));
         }
-
+ 
         [Test]
         public void CanCheckForATrait()
         {
             //given an object implements an interface
             var o = new SomeObject();
-            o.Traits().Add<SomeTrait>(new SomeTrait());
+            o.With(new SomeTrait());
             //when AsTrait is called
-            bool isTrait = o.Traits().Has<SomeTrait>();
+            bool isTrait = o.Has<SomeTrait>();
             //then the object is returned
             Assert.True(isTrait);
         }
@@ -95,7 +96,7 @@ namespace NTraits.Tests
         {
             var o = new SomeObject();
             var someTrait = new SomeTrait();
-            o.Traits().Add<SomeTrait>(someTrait);
+            o.Traits().Add(someTrait);
             //when Entity() is called 
             var entity = someTrait.Entity();
             //then the paretn is returned
@@ -103,6 +104,20 @@ namespace NTraits.Tests
         }
 
 
+        [Test]
+        public void CanGetOneTraitFromAnother()
+        {
+            var o = new SomeObject();
+            var someTrait = new SomeTrait();
+            o.Traits().Add(someTrait);
+            var someTrait2 = new SomeTrait2();
+            o.Traits().Add(someTrait2);
+
+            //when .As is called on one trait
+            var retreivedTrait = someTrait.As<SomeTrait2>();
+            //then the other trait is returned
+            Assert.AreEqual(someTrait2, retreivedTrait);
+        }
 
 
 
@@ -117,6 +132,10 @@ namespace NTraits.Tests
         public class SomeTrait
         {
         }
-
+        public class SomeTrait2
+        {
+        }
     }
+
+    
 }

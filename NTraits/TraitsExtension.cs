@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace NTraits
@@ -17,6 +18,24 @@ namespace NTraits
         public static object Entity(this object trait)
         {
             return ents.GetValue(trait, key => null);
+        }
+
+        public static T As<T>(this object o) where T : class
+        {
+            var ent = o.Entity();
+            if (ent != null)
+            {
+                return ent.As<T>();
+            }
+            else
+            {
+                return o as T ?? o.Traits().Get<T>();
+            }
+        }
+
+        public static bool Has<T>(this object o) where T : class
+        {
+            return o.As<T>() != null;
         }
     }
 }
