@@ -37,5 +37,11 @@ namespace NTraits
         {
             return o.As<T>() != null;
         }
+
+
+        public static IEnumerable<TTrait> OfTrait<TTrait>(this IEnumerable<object> objects) where TTrait : class
+        {
+            return objects.Select(o => o.As<TTrait>()).Where(o => o != null);
+        }
     }
 }
