@@ -16,22 +16,28 @@ Attaching a trait
 
 Checking for trait
 ```
-     bool hasTrait = someObject.Traits().Has<SomeTraitType>(); //returns true or false
+     bool hasTrait = someObject.Has<SomeTraitType>(); //returns true or false
 ``` 
 
-Retreiving a trait
-```
-     SomeTraitType trait = someObject.Traits().Get<SomeTraitType>(); //will return null if there is no trait of type SomeTraitType
-``` 
 
 Checking for a trait, or the instance if it implements the requested type 
 ```
-     bool hasTrait = someObject.Traits().Is<SomeTraitType>(); //will return null, or an instance of SomeTraitType
+     bool hasTrait = someObject.Has<SomeTraitType>(); 
 ``` 
 
 Retreiving a trait, or the instance if it implements the requested type 
 ```
-     SomeTraitType trait = someObject.Traits().As<SomeTraitType>(); //will return null, or an instance of SomeTraitType
+     SomeTraitType trait = someObject.As<SomeTraitType>(); //will return null, or an instance of SomeTraitType
+``` 
+
+You can also cast back to any other trait on the traited entity, or back to the entity from a trait
+```
+     SomeTraitType trait = someObject.As<SomeTraitType>(); 
+     
+     SomeOtherTraitType otherTrait = trait.As<SomeOtherTraitType>(); 
+     
+     var originalSomeObject = otherTrait.As<SomeObject>(); 
+     
 ``` 
 
 Retreiving all traits attached to an object
