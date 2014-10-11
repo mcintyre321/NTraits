@@ -4,12 +4,7 @@ namespace NTraits
 {
     public static class WithTraitExtension
     {
-        public static object With<T>(this object e) where T : class, new()
-        {
-            e.Traits().Add(new T());
-            return e;
-        }
-        public static object With<T>(this object e, T t) where T : class
+        public static T With<T, TTrait>(this T e, TTrait t) where TTrait : class
         {
             e.Traits().Add(t);
             return e;
