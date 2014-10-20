@@ -21,7 +21,7 @@ namespace NTraits.Tests
             //given a trait is attached to an object
             var o = new object();
             var trait = new SomeTrait();
-            o.Traits().Add<SomeTrait>(trait);
+            o.Traits().Add(trait);
             //when the trait is requested by type
             var retreivedTrait = o.Traits().Get<SomeTrait>();
             //then the trait is returned
@@ -34,7 +34,7 @@ namespace NTraits.Tests
             //given a trait is attached to an object
             var o = new object();
             var trait = new SomeTrait();
-            o.Traits().Add<SomeTrait>(trait);
+            o.Traits().Add(trait);
             //and the trait is removed
             bool wasRemoved = o.Traits().Pop<SomeTrait>();
             //when the trait is requested by type

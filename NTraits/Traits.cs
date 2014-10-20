@@ -29,9 +29,9 @@ namespace NTraits
     
       
     
-        public void Add<T>(T trait) where T:class
+        public void Add(object trait)
         {
-            traits[typeof (T)] = trait;
+            traits[trait.GetType()] = trait;
             TraitsExtension.ents.Add(trait, _key);
         }
 

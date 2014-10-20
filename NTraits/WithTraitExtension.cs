@@ -18,7 +18,5 @@ namespace NTraits
             return e;
         }
 
- 
-
     }
 }
